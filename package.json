@@ -1,0 +1,16 @@
+{
+  "name": "ed-content",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Markdown learning cards compiled into a SQLite database, a static JSON API, and a static site for GitHub Pages.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node --disable-warning=ExperimentalWarning scripts/build.mjs",
+    "validate": "node --disable-warning=ExperimentalWarning scripts/build.mjs --validate-only",
+    "serve": "node scripts/serve.mjs",
+    "start": "npm run build && npm run serve"
+  }
+}
