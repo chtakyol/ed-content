@@ -80,7 +80,7 @@ Read-only, no auth, no query parameters. Every endpoint is a JSON file.
 | `api/v1/version.json` | `contentHash` for cheap change detection |
 | `api/v1/cards/index.json` | all cards, full payload |
 | `api/v1/cards/{id}.json` | one card |
-| `api/v1/topics/index.json` | sections and tracks |
+| `api/v1/topics/index.json` | sections with card counts |
 | `api/v1/topics/{slug}/index.json` | one section + card summaries |
 | `api/v1/tags/index.json` | tags with counts |
 | `api/v1/tags/{slug}/index.json` | cards with one tag |

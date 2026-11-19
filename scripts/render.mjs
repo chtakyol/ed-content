@@ -266,7 +266,7 @@ function renderApiDocs({ model, meta }) {
     ["version.json", "Content hash for cheap change detection"],
     ["cards/index.json", "All cards with full payload"],
     ["cards/{id}.json", "A single card"],
-    ["topics/index.json", "Sections and tracks"],
+    ["topics/index.json", "Sections with card counts"],
     ["topics/{slug}/index.json", "One section with card summaries"],
     ["tags/index.json", "All tags with counts"],
     ["tags/{slug}/index.json", "Cards carrying a tag"],

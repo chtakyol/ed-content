@@ -58,7 +58,6 @@ function sectionSummary(track, section) {
     order: section.order,
     cardCount: section.cards.length,
     url: `topics/${section.slug}/`,
-    apiUrl: `api/v1/topics/${section.slug}/index.json`,
   };
 }
 
@@ -117,17 +116,6 @@ export function buildApi({ outDir, model, meta }) {
   writeJson(join(apiRoot, "topics", "index.json"), {
     count: sections.length,
     sections: sections.map(({ track, section }) => sectionSummary(track, section)),
-    tracks: model.tracks.map((track) => ({
-      slug: track.slug,
-      title: track.title,
-      sections: track.sections.map((section) => ({
-        slug: section.slug,
-        title: section.title,
-        order: section.order,
-        cardCount: section.cards.length,
-        url: `topics/${section.slug}/`,
-      })),
-    })),
   });
 
   for (const { track, section } of sections) {
@@ -255,7 +243,7 @@ export function buildApi({ outDir, model, meta }) {
       "/api/v1/topics/index.json": {
         get: {
           tags: ["topics"],
-          summary: "Sections and tracks",
+          summary: "Sections with card counts (group client-side by track)",
           responses: { 200: { description: "Sections" } },
         },
       },

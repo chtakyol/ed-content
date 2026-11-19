@@ -90,14 +90,23 @@ function renderInline(text) {
     .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
 }
 
-/** Plain text version, used for search, snippets, and the SQLite FTS table. */
+/**
+ * Plain text version, used for search, snippets, and the SQLite FTS table.
+ *
+ * Strips Markdown markers line-wise so that angle brackets in generics survive:
+ * `Deferred<T>` must stay `Deferred<T>`, not become `Deferred<T`.
+ */
 export function toPlainText(markdown) {
   return markdown
     .replace(/\r\n/g, "\n")
     .replace(/```[^\n]*\n([\s\S]*?)```/g, "$1")
     .replace(/`([^`]+)`/g, "$1")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .replace(/[*_#>]+/g, " ")
+    .replace(/^\s{0,3}#{1,6}\s+/gm, "")
+    .replace(/^\s{0,3}>\s?/gm, "")
+    .replace(/^\s{0,3}[-*+]\s+/gm, "")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*\n]+)\*/g, "$1")
     .replace(/\s+/g, " ")
     .trim();
 }
