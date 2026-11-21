@@ -7,16 +7,23 @@ import { extractCode, renderMarkdown, toPlainText } from "./markdown.mjs";
 
 const CARDS_DIR = "cards";
 const STOP_WORDS = new Set(["and", "or", "of", "the", "vs", "to", "in", "for"]);
+const DISPLAY_WORDS = new Map([
+  ["ui", "UI"],
+  ["api", "API"],
+  ["viewmodel", "ViewModel"],
+  ["datastore", "DataStore"],
+]);
 
 export function titleFromSlug(slug) {
   return slug
     .split("-")
     .filter(Boolean)
-    .map((word, index) =>
-      index > 0 && STOP_WORDS.has(word)
+    .map((word, index) => {
+      if (DISPLAY_WORDS.has(word)) return DISPLAY_WORDS.get(word);
+      return index > 0 && STOP_WORDS.has(word)
         ? word
-        : word[0].toUpperCase() + word.slice(1),
-    )
+        : word[0].toUpperCase() + word.slice(1);
+    })
     .join(" ");
 }
 
