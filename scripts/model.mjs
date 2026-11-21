@@ -12,7 +12,16 @@ const DISPLAY_WORDS = new Map([
   ["api", "API"],
   ["viewmodel", "ViewModel"],
   ["datastore", "DataStore"],
+  ["oop", "OOP"],
+  ["solid", "SOLID"],
 ]);
+
+const TRACK_ORDER = ["kotlin", "oop", "solid", "coroutines", "flows", "architecture"];
+
+function trackRank(slug) {
+  const index = TRACK_ORDER.indexOf(slug);
+  return index === -1 ? TRACK_ORDER.length : index;
+}
 
 export function titleFromSlug(slug) {
   return slug
@@ -117,6 +126,7 @@ export function loadModel(rootDir = process.cwd()) {
           track: track.slug,
           section: section.slug,
           sectionTitle: section.title,
+          sectionOrder: section.order,
           order: filePrefix ? Number(filePrefix[1]) : Number.MAX_SAFE_INTEGER,
           fileName,
           sourcePath,
@@ -143,10 +153,14 @@ export function loadModel(rootDir = process.cwd()) {
     tracks.push(track);
   }
 
+  tracks.sort(
+    (a, b) => trackRank(a.slug) - trackRank(b.slug) || a.slug.localeCompare(b.slug),
+  );
+
   cards.sort(
     (a, b) =>
-      a.track.localeCompare(b.track) ||
-      a.section.localeCompare(b.section) ||
+      trackRank(a.track) - trackRank(b.track) ||
+      a.sectionOrder - b.sectionOrder ||
       a.order - b.order,
   );
 

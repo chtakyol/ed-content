@@ -8,8 +8,8 @@ Markdown learning cards compiled into three artifacts at build time:
 
 No runtime dependencies, no server, no build framework — plain Node.
 
-Three tracks ship today: Kotlin **coroutines**, Kotlin **flows**, and Android app
-**architecture**.
+Six tracks ship today: Kotlin **language**, **OOP**, **SOLID**, Kotlin
+**coroutines**, Kotlin **flows**, and Android app **architecture**.
 
 ## Quick start
 
