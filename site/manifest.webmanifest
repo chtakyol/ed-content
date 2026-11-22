@@ -1,7 +1,7 @@
 {
   "name": "Learning Cards",
   "short_name": "Cards",
-  "description": "Kotlin, OOP, SOLID, coroutines, flows, and Android architecture learning cards, available offline.",
+  "description": "Kotlin, Compose, architecture, and Android fundamentals learning cards, available offline.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

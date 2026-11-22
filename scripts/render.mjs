@@ -67,7 +67,7 @@ function renderHome({ model, meta }) {
 
   const body = `<section class="hero">
   <h1>${escapeHtml(SITE_NAME)}</h1>
-  <p class="lead">Kotlin, OOP, SOLID, coroutines, flows, and Android architecture, one card at a time. Read online, search offline, or pull the whole database into your app.</p>
+  <p class="lead">Kotlin, Compose, architecture, and Android fundamentals, one card at a time. Read online, search offline, or pull the whole database into your app.</p>
   <div class="actions">
     <a class="button" href="#sections">Browse ${sections.length} sections</a>
     <a class="button ghost" href="search/">Search</a>
@@ -106,7 +106,7 @@ ${track.sections
     "index.html",
     layout({
       title: "",
-      description: `${model.cards.length} Kotlin, OOP, SOLID, coroutines, flows, and Android architecture learning cards across ${sections.length} sections.`,
+      description: `${model.cards.length} Kotlin, Compose, architecture, and Android fundamentals learning cards across ${sections.length} sections.`,
       root: "./",
       body,
     }),

@@ -14,9 +14,23 @@ const DISPLAY_WORDS = new Map([
   ["datastore", "DataStore"],
   ["oop", "OOP"],
   ["solid", "SOLID"],
+  ["bom", "BOM"],
+  ["di", "DI"],
+  ["compositionlocal", "CompositionLocal"],
 ]);
 
-const TRACK_ORDER = ["kotlin", "oop", "solid", "coroutines", "flows", "architecture"];
+const TRACK_ORDER = [
+  "kotlin",
+  "oop",
+  "solid",
+  "coroutines",
+  "flows",
+  "jetpack-compose",
+  "activities",
+  "app-navigation",
+  "dependency-injection",
+  "architecture",
+];
 
 function trackRank(slug) {
   const index = TRACK_ORDER.indexOf(slug);
