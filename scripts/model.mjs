@@ -17,6 +17,14 @@ const DISPLAY_WORDS = new Map([
   ["bom", "BOM"],
   ["di", "DI"],
   ["compositionlocal", "CompositionLocal"],
+  ["owasp", "OWASP"],
+  ["masvs", "MASVS"],
+  ["maswe", "MASWE"],
+  ["mastg", "MASTG"],
+  ["ipc", "IPC"],
+  ["tls", "TLS"],
+  ["apk", "APK"],
+  ["pii", "PII"],
 ]);
 
 const TRACK_ORDER = [
@@ -30,6 +38,7 @@ const TRACK_ORDER = [
   "app-navigation",
   "dependency-injection",
   "architecture",
+  "security",
 ];
 
 function trackRank(slug) {
